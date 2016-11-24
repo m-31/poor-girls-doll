@@ -21,4 +21,7 @@ to test something these simple shell functions might be useful.
 
 ## Example
 
+Execute "example.sh" (using bash functions from pgd.sh) on host "my.host.com"
+
+    ./execute example.sh my.host.com
 
