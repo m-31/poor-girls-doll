@@ -1,0 +1,4 @@
+#!/bin/sh
+# execute local script $1 on host $2 as root
+set -e
+cat pgd.sh $1 | ssh -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l root $2 sh -sl
