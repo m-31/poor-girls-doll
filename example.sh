@@ -1,5 +1,52 @@
 #!/bin/sh
 # just an example script, uses functions from pwd.sh
 
-pwd
+# be shure we have the latest stuff installed
+yum update &>/dev/null
+yum upgrade -y &>/dev/null
+
+## install ntp
+install ntp
+replace_string /etc/ntp.conf centos europe
+add_line_if_not_already_there /etc/ntp.conf "logfile /var/log/ntp.log"
+set +e
+systemctl enable ntpd &>/dev/null
+set -e
+systemctl restart ntpd
+
+## install extra root key
+add_line_if_not_already_there /root/.ssh/authorized_keys \
+"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC36JAfc5BjTtq9WnoWzssx/Jr6gbI6ahebE0YjgsHFSsD74sfp3N7CrbiEEWe2AtNsMha/RxuzIinwEQU3BEXscyxFTvscxc+VXPuZfp5Chy+BVD0qPNCf91LGBAiqovRzysJlIjk2j7HykhR/rawpoZoNetF3xjXb3eregNx/Is2C0+HqrpRgipoiZIwBeYe+u3pRynoYtCN5eRyFKjMDUKUgr97q0oJGco9wmou7O2cWYzMZX8p8/CCKUnYzqktHsx4L7SeoG2E4wU5EUACqeF1nyiALBpfBY+acWHK1ep9+OyuLcijDcZQzJNKmMAAoHgX6aRWL5e2WFRhnNMGL m31⅛snork.moominland"
+
+# save private root key
+assert_file_contents /root/.ssh/id_rsa \
+"-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAt+iQH3OQY07avVp6Fs7LMfya+oGyOmoXmxNGI4LBxUrA++LH
+6dzewq24hBFntgLTbDIWv0cbsyIp8BEFNwRF7HMsRU77HMXPlVz7mX6eQocvgVQ9
+KjzQn/dSxgQIqqL0c8rCZSI5No+x8pIUf62sKaGaDXrRd8Y1293q3oDcfyLNgtPh
+6q6UYIqaImSMAXmHvrt6Ucp6GLQjeXkchSozA1ClIK/e6tKCRnKPcJqLuztnFmMz
+GV/KfPwgilJ2M6pLR7MeC+0nqBthOMFORFAAqnhdZ8ogCwaXwWPmnFhytXqffjsr
+i3Iow3GUMyTSpjAAKB4F+mkVi+XtlhUYZzTBiwIDAQABAoIBAFLxMxbMMuFm7eYa
+SRfCOggYSfkSx0PrFyxcW/SmAygsl67CT7EcaObaHG6Lvv9qdNnGGVY5Brgaf1mD
+A5wVdEe4hc3YWg5W9FEDt4E5hrywZW9pg5BqDxkmHRGrPhFfHuqeFmAwOCdwVSv2
+UAJpXE0GUgkkTBY9sYqwoj2pVkiLr7B9mR+dkr2ex6/T9es1gaatMR5VfsqIbjAw
+eaP3k1gwph4Al377Ob95cdT0hPUsopC7mbCmy2TBM5lBKChmyjneqQ+jfZGn7sfB
+VAi8xggCSGNQ40r2Fuv5QuILkILPWS6zhguBpsVwgsiafwuWXhzprhQOhqfYtZ1l
+zzb56bECgYEA8yt9GzxSpPM9RsjqRM8TBVlYbzCvkWBrn3jAiAKI8OlX/PKDXSyl
+xcT25GbqfClPKH6IqgSNJihoWdGcKqGMIe4lOqedrpAp46N0JMd//QKjMA+RPzVj
+tp3COCl/AvKap8cZK5OKp11cOCeI1Qz64BdmzsY+ZFAUZL0TedASjPkCgYEAwZyg
+VtqliQp22EkVwhBJ7+psvLbyn+VfKJQCFua509HtYJtixhVr9zbWw6iDrDp04ub2
+wj5HqdWL5m9cvAgyY4NPn43y6J1ArSl8R+5jkarB63ZM3PShqMM/cDcMYIpK0kFO
+111Ag7gci+OVV4KOCQ8C3x8QEfe88Vygm8BXt6MCgYBQhRT/IMFo91ZSCxNvx3XP
+7p7W6rMoG1pnyu9N2jEIPOwyyQbwomkeDLOIO//nLzKUARo12h33BahQHZVtlGK3
+lYjkXD5dYEVOqIA78YeS+v2YW39IA+DJxoFaYXs6OaU2azoNcOSXuNVhjs3DZnHo
+JDeZvpFIXC/0j5tUWa7a2QKBgQCuI/RLaomtQw415zZ8wC3gbpey/VIo4yO92bIv
+awMFNDIvzFMBG09qoZZ1kWItTL7JPzf+6gmHBh24+70LGsxHmVnKhuBOvPHpTgEM
+qaxA3rdg05y6uAWXR1YN1lV5l6lIh5kkOCnIz5ZNdDtk5HZgS3InwUaxAoSdCtUi
+gdPjxQKBgQCmdSBbv5kQZAHi4U0qBvSVtVYkjX4NMXEg3Q750oJEj8gIDBNtVSqR
+fskmlv10mzDD0aSy+r7wtztEauHKSlQsZkkWtcB8F1AvdPTvJoQ57ln+msHChj8B
+HLQY3J79n6TS1IFCEJA3SjFo5emLuHaMGpqPoFpSEBUDGzOpMhFMoA==
+-----END RSA PRIVATE KEY-----
+"
+chmod 600 /root/.ssh/id_rsa
 
