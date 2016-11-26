@@ -1,9 +1,9 @@
 #!/bin/sh
 
 set -e
-set +x
+set -x
 
-echo "on " $(hostname -f)
+echo "I am now working on " $(hostname -f)
 
 add_line_if_not_already_there /etc/sudoers \
 "deploy ALL=NOPASSWD:/bin/cp -a /etc/motd /etc/motd.orig"
