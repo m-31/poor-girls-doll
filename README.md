@@ -35,3 +35,6 @@ You want to add some rules to your /etc/sudoers file on various hosts?
 
     ./execute example_2.sh my.host.com
 
+
+Have fun and dance!
+![dancing skeleton](http://abcdefghijklmn-pqrstuvwxyz.com/wp-content/uploads/2016/07/O_VictorNavarroRemesal_Pupafobia_002.gif)
