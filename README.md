@@ -15,13 +15,22 @@ that assure that a certain state is reached.
 
 **Be warned: this is not meant for production usage!**
 
-But for rapidly building a setup script for some simply equiped VMs just
+But for rapidly building a setup script for some simply equipped VMs just
 to test something these simple shell functions might be useful.
 
 
-## Example
+## Examples
 
-Execute "example.sh" (using bash functions from pgd.sh) on host "my.host.com"
+### Example 1
+Execute "example_1.sh" which uses bash functions from pgd.sh on host "my.host.com"
 
-    ./execute example.sh my.host.com
+    ./execute example_1.sh my.host.com
+
+This will update the yum repositories, install and configure ntp and install
+an additional root key on your centos or rhel host.
+
+### Example 2
+You want to add some rules to your /etc/sudoers file on various hosts?
+
+    ./execute example_2.sh my.host.com
 
