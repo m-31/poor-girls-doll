@@ -1,4 +1,4 @@
-![poor girl's doll](http://www.beachstonesinspired.com/images/easy-make-puppets-beach-pebbles.jpg)
+![poor girl's doll](http://www.handmadecharlotte.com/wp-content/uploads/2013/10/gifpal-skeleton-puppet.gif)
 # Poor Girl's Doll
 
 You have root access to some linux boxes and want to add some ssh keys,
