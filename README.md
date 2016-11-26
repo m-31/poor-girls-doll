@@ -42,6 +42,6 @@ Have fun and dance!
 
 ![dancing skeleton](http://abcdefghijklmn-pqrstuvwxyz.com/wp-content/uploads/2016/07/O_VictorNavarroRemesal_Pupafobia_002.gif)
 
-And if you want to see more strings look at
+And if you want to see more strings see the film at
  
  [![Strings (2004)](http://img.youtube.com/vi/u5p-nmlEkzo/0.jpg)](https://www.youtube.com/watch?v=u5p-nmlEkzo "Strings (2004)")
