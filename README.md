@@ -1,5 +1,6 @@
-![poor girl's doll](http://www.handmadecharlotte.com/wp-content/uploads/2013/10/gifpal-skeleton-puppet.gif)
 # Poor Girl's Doll
+
+<img align="right" src="http://www.handmadecharlotte.com/wp-content/uploads/2013/10/gifpal-skeleton-puppet.gif">
 
 You have root access to some linux boxes and want to add some ssh keys,
 install some packages and change their config files.
